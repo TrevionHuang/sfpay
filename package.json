@@ -1,0 +1,44 @@
+{
+  "name": "sfpay",
+  "version": "0.1.0",
+  "description": "sfpay",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint ./src",
+    "test": "node_modules/.bin/eslint ./src",
+    "build": "node_modules/.bin/babel src -d dist",
+    "compile": "node_modules/.bin/babel src -d dist",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrevionHuang/sfpay.git"
+  },
+  "keywords": [
+    "sfpay"
+  ],
+  "author": "TrevionHuang",
+  "license": "MIT",
+  "dependencies": {
+    "MD5": "^1.2.1",
+    "request": "^2.54.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-plugin-syntax-async-functions": "^6.5.0",
+    "babel-plugin-syntax-class-properties": "^6.8.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.5.0",
+    "babel-plugin-transform-async-to-generator": "^6.3.13",
+    "babel-plugin-transform-class-properties": "^6.9.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.5.2",
+    "babel-plugin-transform-es2015-destructuring": "^6.3.15",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.3.16",
+    "babel-plugin-transform-es2015-parameters": "^6.5.0",
+    "babel-plugin-transform-es2015-spread": "^6.5.2",
+    "babel-plugin-transform-object-rest-spread": "^6.5.0",
+    "babel-plugin-transform-strict-mode": "^6.5.2",
+    "babel-register": "^6.3.13",
+    "sequelize-cli": "^2.3.1",
+    "chai": "^3.4.0"
+  }
+}
