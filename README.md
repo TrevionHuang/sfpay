@@ -71,8 +71,8 @@ function async rfdq() {
 
 条码支付
 ```js
-function async mpay() {
-    const result = await sfPay.mpay({
+function async mPay() {
+    const result = await sfPay.mPay({
         out_trade_no: `20170103${Math.random().toString().substr(2, 10)}`,
         body: '测试条码支付',
         total_fee: 1,

@@ -106,9 +106,9 @@ describe('sfpay', () => {
 				goods_tag: 'coupon'
 			};
 			const sfPay = new SFPay({key: 'xxxxxxxxxxxxxxxxxxxx', spId: 'xxxx', muchId: 'xxxxxxxxxxxxxxxxx'});
-			const mpayRes = await sfPay.mpay(params);
-			console.log(`The value of mpayRes is ${JSON.stringify(mpayRes)}`);
-			if (mpayRes) result = true;
+			const mPayRes = await sfPay.mPay(params);
+			console.log(`The value of mpayRes is ${JSON.stringify(mPayRes)}`);
+			if (mPayRes) result = true;
 			expect(result).to.equal(true);
 		});
 	});

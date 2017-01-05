@@ -82,7 +82,7 @@ class SFPay {
 		})();
 	}
 
-	mpay(params) {
+	mPay(params) {
 		var _this6 = this;
 
 		return _asyncToGenerator(function* () {

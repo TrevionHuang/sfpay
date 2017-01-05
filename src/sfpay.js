@@ -43,7 +43,7 @@ export default class SFPay {
 		return await common({url, params, options: this.options});
 	}
 
-	async mpay(params) {
+	async mPay(params) {
 		const url = '/gate/wx/mpay';
 		return await common({url, params, options: this.options});
 	}

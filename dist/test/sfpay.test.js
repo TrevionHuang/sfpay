@@ -115,9 +115,9 @@ describe('sfpay', function () {
 				goods_tag: 'coupon'
 			};
 			const sfPay = new _sfpay2.default({ key: 'xxxxxxxxxxxxxxxxxxxx', spId: 'xxxx', muchId: 'xxxxxxxxxxxxxxxxx' });
-			const mpayRes = yield sfPay.mpay(params);
-			console.log(`The value of mpayRes is ${ JSON.stringify(mpayRes) }`);
-			if (mpayRes) result = true;
+			const mPayRes = yield sfPay.mPay(params);
+			console.log(`The value of mpayRes is ${ JSON.stringify(mPayRes) }`);
+			if (mPayRes) result = true;
 			(0, _chai.expect)(result).to.equal(true);
 		}));
 	});
