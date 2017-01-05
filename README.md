@@ -33,7 +33,6 @@ sfPay.sPay({
 
 订单查询
 ```js
-// 通过商户订单号查
 sfPay.tradeQry({ out_trade_no: "xxxxxx" });
 ```
 
