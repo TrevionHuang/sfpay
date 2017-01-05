@@ -1,5 +1,5 @@
 # sfpay
-An async/await version of sfpay
+An async/await version of sfpay.
 
 ## Installation
 ```
