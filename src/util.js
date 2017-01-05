@@ -38,7 +38,6 @@ export function mix(...args) {
 }
 
 export async function postReq({url, params}) {
-	console.log(`The value of params is ${JSON.stringify(params)}`);
 	const options = {
 		headers: {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'},
 		url: `http://api.shangfudata.com${url}`,
