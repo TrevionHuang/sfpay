@@ -1,5 +1,5 @@
 # sfpay
-sfpay for node.js
+An async/await version of sfpay
 
 ## Installation
 ```
@@ -18,40 +18,52 @@ const sfPay = new SFPay({
     muchId: 'xxxxxxxxxxxxxxxxx'
 });
 
-sfPay.sPay({
-    out_trade_no: `20170104${Math.random().toString().substr(2, 10)}`,
-    body: '扫码支付测试',
-    total_fee: 100,
-    mch_create_ip: '127.0.0.1',
-    notify_url: 'http://127.0.0.1/order/api/notify',
-    time_start: '201612310629',
-    time_expire: '201612310829',
-    goods_tag: 'mj',
-    product_id: 'qr1001'
-});
+function async sPay() {
+    const result = await sfPay.sPay({
+        out_trade_no: `20170104${Math.random().toString().substr(2, 10)}`,
+        body: '扫码支付测试',
+        total_fee: 100,
+        mch_create_ip: '127.0.0.1',
+        notify_url: 'http://127.0.0.1/order/api/notify',
+        time_start: '201612310629',
+        time_expire: '201612310829',
+        goods_tag: 'mj',
+        product_id: 'qr1001'
+    });
+    console.log(`result:${JSON.stringify(result)}`);
+}
 ```
 
 订单查询
 ```js
-sfPay.tradeQry({ out_trade_no: "xxxxxx" });
+function async tradeQry() {
+    const result = await sfPay.tradeQry({ out_trade_no: "xxxxxx" });
+    console.log(`result:${JSON.stringify(result)}`);
+}
 ```
 
 退款
 ```js
-sfPay.rfd({
-    out_trade_no: 'xxxxxxxxxxxxxxxxxxxx',
-    out_refund_no: 'xxxxxxxxxxxxxxxxxxxx',
-    total_fee: 100,
-    refund_fee: 100,
-    refund_channel: 'BALANCE'
-});
+function async rfd() {
+    const result = await sfPay.rfd({
+        out_trade_no: 'xxxxxxxxxxxxxxxxxxxx',
+        out_refund_no: 'xxxxxxxxxxxxxxxxxxxx',
+        total_fee: 100,
+        refund_fee: 100,
+        refund_channel: 'BALANCE'
+    });
+    console.log(`result:${JSON.stringify(result)}`);
+}
 ```
 
 退款查询
 ```js
-sfPay.rfdq({
-    out_trade_no: 'xxxxxxxxxxxxxxxxxxxx'
-});
+function async rfdq() {
+    const result = await sfPay.rfdq({
+        out_trade_no: 'xxxxxxxxxxxxxxxxxxxx'
+    });
+    console.log(`result:${JSON.stringify(result)}`);
+}
 ```
 
 
@@ -59,16 +71,19 @@ sfPay.rfdq({
 
 条码支付
 ```js
-sfPay.mpay({
-    out_trade_no: `20170103${Math.random().toString().substr(2, 10)}`,
-    body: '测试条码支付',
-    total_fee: 1,
-    mch_create_ip: '127.0.0.1',
-    auth_code: 'xxxxxx',
-    time_start: '20170103104500',
-    time_expire: '20170103160000',
-    goods_tag: 'coupon'
-});
+function async mpay() {
+    const result = await sfPay.mpay({
+        out_trade_no: `20170103${Math.random().toString().substr(2, 10)}`,
+        body: '测试条码支付',
+        total_fee: 1,
+        mch_create_ip: '127.0.0.1',
+        auth_code: 'xxxxxx',
+        time_start: '20170103104500',
+        time_expire: '20170103160000',
+        goods_tag: 'coupon'
+    });
+    console.log(`result:${JSON.stringify(result)}`);
+}
 ```
 
 
@@ -76,16 +91,19 @@ sfPay.mpay({
 
 公众号支付
 ```js
-sfPay.jPay({
-    out_trade_no: `20170103${Math.random().toString().substr(2, 10)}`,
-    wx_appid: 'xxxxxxxxxxxxxxxx',
-    openid: 'xxxxxxxxxxxxxxxxxxxxx',
-    body: '测试jsAPI支付',
-    total_fee: 100,
-    mch_create_ip: '127.0.0.1',
-    notify_url: 'http://xxxxxxxxxxxxx/order/api/notify',
-    goods_tag: 'coupon'
-});
+function async jPay() {
+    const result = await sfPay.jPay({
+        out_trade_no: `20170103${Math.random().toString().substr(2, 10)}`,
+        wx_appid: 'xxxxxxxxxxxxxxxx',
+        openid: 'xxxxxxxxxxxxxxxxxxxxx',
+        body: '测试jsAPI支付',
+        total_fee: 100,
+        mch_create_ip: '127.0.0.1',
+        notify_url: 'http://xxxxxxxxxxxxx/order/api/notify',
+        goods_tag: 'coupon'
+    });
+    console.log(`result:${JSON.stringify(result)}`);
+}
 ```
 
 网页端调起支付API
