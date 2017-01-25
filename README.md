@@ -66,6 +66,36 @@ function async rfdq() {
 }
 ```
 
+### 商户自助注册
+
+商户自助注册
+```js
+function async reg() {
+    // 商户自助注册在 new SFPay() 的时候 muchId 参数可不传或者值为空
+    const params = {
+        mcht_name: 'xxxxxxxxxxx公司',
+        mcht_short_name: 'xxxx',
+    	address: 'xxxxxxxxxxxxxxxxxxxx',
+    	leg_name: 'xxx',
+    	leg_phone: 'xxxxxxxxxxxxx',
+    	leg_email: 'xxxxxxxxxxxxxxxxxxx',
+    	acc_no: 'xxxxxxxxxxxxxxxxxx',
+    	acc_bank_name: 'xxxxxxxxxxxxxxxxxxxx',
+    	acc_bank_no: 'xxxxxxxxxxxxxxxxx',
+    	service_tel: 'xxxxxxxxxxxxxxxxxxx',
+    	id_type: 'xxxxxxxxxxxxxxxxxx',
+    	id_no: 'xxxxxxxxxxxxxxxxxxxx',
+    	settle_cycle: 'xxxxxxxxxx',
+    	settle_type: 'xxxxxxxxxxxxxxx',
+    	settle_rate: 0,
+    	extra_rate_type: 'xxxxxxxxxxxx',
+    	extra_rate: 0
+    };
+    const result = await sfPay.reg(params);
+    console.log(`result:${JSON.stringify(result)}`);
+}
+```
+
 
 ### 条码支付
 

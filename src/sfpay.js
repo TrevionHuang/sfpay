@@ -38,13 +38,18 @@ export default class SFPay {
 		return await common({url, params, options: this.options});
 	}
 
-	async rfdq({params}) {
+	async rfdq(params) {
 		const url = '/gate/spsvr/trade/rfdq';
 		return await common({url, params, options: this.options});
 	}
 
 	async mPay(params) {
 		const url = '/gate/wx/mpay';
+		return await common({url, params, options: this.options});
+	}
+
+	async reg(params) {
+		const url = '/gate/msvr/reg';
 		return await common({url, params, options: this.options});
 	}
 }

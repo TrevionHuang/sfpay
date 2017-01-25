@@ -5,7 +5,7 @@ import SFPay from '../sfpay';
 import { expect } from 'chai';
 
 describe('sfpay', () => {
-	describe('sPay', () => {
+	describe.skip('sPay', () => {
 		it('sPay should ok', async () => {
 			let result = false;
 			const params = {
@@ -109,6 +109,36 @@ describe('sfpay', () => {
 			const mPayRes = await sfPay.mPay(params);
 			console.log(`The value of mpayRes is ${JSON.stringify(mPayRes)}`);
 			if (mPayRes) result = true;
+			expect(result).to.equal(true);
+		});
+	});
+
+	describe('reg', () => {
+		it('reg should ok', async () => {
+			let result = false;
+			const params = {
+				mcht_name: 'xxxxxxxxxxx公司',
+				mcht_short_name: 'xxxx',
+				address: 'xxxxxxxxxxxxxxxxxxxx',
+				leg_name: 'xxx',
+				leg_phone: 'xxxxxxxxxxxxx',
+				leg_email: 'xxxxxxxxxxxxxxxxxxx',
+				acc_no: 'xxxxxxxxxxxxxxxxxx',
+				acc_bank_name: 'xxxxxxxxxxxxxxxxxxxx',
+				acc_bank_no: 'xxxxxxxxxxxxxxxxx',
+				service_tel: 'xxxxxxxxxxxxxxxxxxx',
+				id_type: 'xxxxxxxxxxxxxxxxxx',
+				id_no: 'xxxxxxxxxxxxxxxxxxxx',
+				settle_cycle: 'xxxxxxxxxx',
+				settle_type: 'xxxxxxxxxxxxxxx',
+				settle_rate: 0,
+				extra_rate_type: 'xxxxxxxxxxxx',
+				extra_rate: 0
+			};
+			const sfPay = new SFPay({key: 'xxxxxxxxxxxxxxxxxxxx', spId: 'xxxxxxxxxxxxxxxxx', muchId: ''});
+			const regRes = await sfPay.reg(params);
+			console.log(`The value of regRes is ${JSON.stringify(regRes)}`);
+			if (regRes) result = true;
 			expect(result).to.equal(true);
 		});
 	});

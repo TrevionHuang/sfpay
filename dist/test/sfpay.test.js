@@ -14,7 +14,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 describe('sfpay', function () {
-	describe('sPay', function () {
+	describe.skip('sPay', function () {
 		it('sPay should ok', _asyncToGenerator(function* () {
 			let result = false;
 			const params = {
@@ -118,6 +118,36 @@ describe('sfpay', function () {
 			const mPayRes = yield sfPay.mPay(params);
 			console.log(`The value of mpayRes is ${ JSON.stringify(mPayRes) }`);
 			if (mPayRes) result = true;
+			(0, _chai.expect)(result).to.equal(true);
+		}));
+	});
+
+	describe('reg', function () {
+		it('reg should ok', _asyncToGenerator(function* () {
+			let result = false;
+			const params = {
+				mcht_name: 'xxxxxxxxxxx公司',
+				mcht_short_name: 'xxxx',
+				address: 'xxxxxxxxxxxxxxxxxxxx',
+				leg_name: 'xxx',
+				leg_phone: 'xxxxxxxxxxxxx',
+				leg_email: 'xxxxxxxxxxxxxxxxxxx',
+				acc_no: 'xxxxxxxxxxxxxxxxxx',
+				acc_bank_name: 'xxxxxxxxxxxxxxxxxxxx',
+				acc_bank_no: 'xxxxxxxxxxxxxxxxx',
+				service_tel: 'xxxxxxxxxxxxxxxxxxx',
+				id_type: 'xxxxxxxxxxxxxxxxxx',
+				id_no: 'xxxxxxxxxxxxxxxxxxxx',
+				settle_cycle: 'xxxxxxxxxx',
+				settle_type: 'xxxxxxxxxxxxxxx',
+				settle_rate: 0,
+				extra_rate_type: 'xxxxxxxxxxxx',
+				extra_rate: 0
+			};
+			const sfPay = new _sfpay2.default({ key: 'xxxxxxxxxxxxxxxxxxxx', spId: 'xxxxxxxxxxxxxxxxx', muchId: '' });
+			const regRes = yield sfPay.reg(params);
+			console.log(`The value of regRes is ${ JSON.stringify(regRes) }`);
+			if (regRes) result = true;
 			(0, _chai.expect)(result).to.equal(true);
 		}));
 	});

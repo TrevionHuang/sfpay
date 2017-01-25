@@ -72,10 +72,9 @@ class SFPay {
 		})();
 	}
 
-	rfdq(_ref3) {
+	rfdq(params) {
 		var _this5 = this;
 
-		let params = _ref3.params;
 		return _asyncToGenerator(function* () {
 			const url = '/gate/spsvr/trade/rfdq';
 			return yield (0, _util.common)({ url, params, options: _this5.options });
@@ -88,6 +87,15 @@ class SFPay {
 		return _asyncToGenerator(function* () {
 			const url = '/gate/wx/mpay';
 			return yield (0, _util.common)({ url, params, options: _this6.options });
+		})();
+	}
+
+	reg(params) {
+		var _this7 = this;
+
+		return _asyncToGenerator(function* () {
+			const url = '/gate/msvr/reg';
+			return yield (0, _util.common)({ url, params, options: _this7.options });
 		})();
 	}
 }
